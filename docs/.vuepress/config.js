@@ -1,5 +1,6 @@
 module.exports = {
+  home: true,
   title: 'Hello VuePress',
   description: 'Just playing around',
-  base: 'https://rlynjb.github.io/thewandrr/'
+  base: '/thewandrr/'
 }
