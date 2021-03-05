@@ -6,15 +6,19 @@
         <img class="logo" src="/logo.png" />
 
         <div>
-          <v-icon medium
-            class="mr-3"
-            @click="gotoExternal('https://www.youtube.com/channel/UCHktUhVF2ZR5JkVunt_OLGw')">
-            fab fa-linkedin-in
-          </v-icon>
-          <v-icon medium
-            @click="gotoExternal('https://www.youtube.com/channel/UCHktUhVF2ZR5JkVunt_OLGw')">
-            far fa-file
-          </v-icon>
+          <btn-icon
+            hrefLink="https://www.youtube.com/channel/UCHktUhVF2ZR5JkVunt_OLGw"
+            target="_blank"
+            iconName="fab fa-linkedin-in"
+            size="24"
+          />
+
+          <btn-icon
+            hrefLink="https://www.youtube.com/channel/UCHktUhVF2ZR5JkVunt_OLGw"
+            target="_blank"
+            iconName="far fa-file"
+            size="24"
+          />
         </div>
       </v-col>
 
@@ -40,17 +44,16 @@
 </template>
 
 <script>
+import btnIcon from '../components/BtnIcon';
 export default {
+  components: {
+    btnIcon
+  },
   data() {
     return {
 
     }
   },
-  methods: {
-    gotoExternal(val) {
-      window.open(val);
-    }
-  }
 }
 </script>
 

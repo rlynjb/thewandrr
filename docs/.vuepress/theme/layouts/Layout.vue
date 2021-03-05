@@ -28,12 +28,6 @@ export default {
     // checking for vuetify
     console.log(this.$options)
   },
-
-  methods: {
-    gotoExternal(val) {
-      window.open(val);
-    }
-  }
 }
 </script>
 

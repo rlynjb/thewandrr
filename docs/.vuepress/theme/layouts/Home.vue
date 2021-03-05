@@ -51,50 +51,66 @@
       <v-container class="pt-16 pb-16 justify-center">
         <v-row class="text-center">
           <v-col>
-            <v-icon large class="mr-2"
-              @click="gotoExternal('https://instagram.com/codepurpl')">
-              fab fa-instagram
-            </v-icon>
-            <v-icon large
-              @click="gotoExternal('https://facebook.com/ecompurpl')">
-              fab fa-facebook-f
-            </v-icon>
+            <btn-icon
+              hrefLink="https://instagram.com/codepurpl"
+              target="_blank"
+              iconName="fab fa-instagram"
+              size="36"
+            />
+
+            <btn-icon
+              hrefLink="https://facebook.com/ecompurpl"
+              target="_blank"
+              iconName="fab fa-facebook-f"
+              size="36"
+            />
             <h4 class="mt-4">Where I post my tidbits</h4>
           </v-col>
 
           <v-col>
-            <v-icon large
-              @click="gotoExternal('https://leetcode.com/rlynjb/')">
-              fas fa-code
-            </v-icon>
+            <btn-icon
+              hrefLink="https://leetcode.com/rlynjb/"
+              target="_blank"
+              iconName="fas fa-code"
+              size="36"
+            />
             <h4 class="mt-4">Where I practice coding</h4>
           </v-col>
 
           <v-col>
-            <v-icon large
-              @click="gotoExternal('https://rlynjb.medium.com/')">
-              fab fa-medium-m
-            </v-icon>
+            <btn-icon
+              hrefLink="https://rlynjb.medium.com/"
+              target="_blank"
+              iconName="fab fa-medium-m"
+              size="36"
+            />
             <h4 class="mt-4">Where I elaborate on details</h4>
           </v-col>
 
           <v-col>
-            <v-icon large class="mr-2"
-              @click="gotoExternal('https://github.com/rlynjb')">
-              fab fa-github
-            </v-icon>
-            <v-icon large
-              @click="gotoExternal('https://codepen.io/rlynjb')">
-              fab fa-codepen
-            </v-icon>
+            <btn-icon
+              hrefLink="https://github.com/rlynjb"
+              target="_blank"
+              iconName="fab fa-github"
+              size="36"
+            />
+
+            <btn-icon
+              hrefLink="https://codepen.io/rlynjb"
+              target="_blank"
+              iconName="fab fa-codepen"
+              size="36"
+            />
             <h4 class="mt-4">Where I store my code</h4>
           </v-col>
 
           <v-col>
-            <v-icon large
-              @click="gotoExternal('https://www.youtube.com/channel/UCHktUhVF2ZR5JkVunt_OLGw')">
-              fab fa-youtube
-            </v-icon>
+            <btn-icon
+              hrefLink="https://www.youtube.com/channel/UCHktUhVF2ZR5JkVunt_OLGw"
+              target="_blank"
+              iconName="fab fa-youtube"
+              size="36"
+            />
             <h4 class="mt-4">Where I vlog</h4>
           </v-col>
         </v-row>
@@ -120,11 +136,13 @@
 <script>
 import headerTheme from '../components/Header';
 import footerTheme from '../components/Footer';
+import btnIcon from '../components/BtnIcon';
 
 export default {
   components: {
     headerTheme,
-    footerTheme
+    footerTheme,
+    btnIcon,
   },
   data() {
     return {
@@ -135,12 +153,6 @@ export default {
     // checking for vuetify
     console.log(this.$options)
   },
-
-  methods: {
-    gotoExternal(val) {
-      window.open(val);
-    }
-  }
 }
 </script>
 
