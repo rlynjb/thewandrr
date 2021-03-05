@@ -157,15 +157,5 @@ export default {
 </script>
 
 <style lang="styl">
-.theme-container a
-  text-decoration: none;
 
-.theme-container .header-anchor
-  display: none;
-
-.theme-container img
-  width: 100%;
-
-.theme-container .logo
-  max-width: 200px;
 </style>
