@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/rlynjb/thewandrr#readme",
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.2",
     "vuepress": "^1.8.2"
   },
   "dependencies": {

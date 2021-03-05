@@ -1,6 +1,7 @@
 import Vuetify from "vuetify";
 import "vuetify/dist/vuetify.min.css";
 import colors from 'vuetify/lib/util/colors';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 export default ({
   Vue, // the version of Vue being used in the VuePress app
@@ -10,6 +11,9 @@ export default ({
 }) => {
   Vue.use(Vuetify);
   options.vuetify = new Vuetify({
+    icons: {
+      iconfont: 'fa',
+    },
     theme: {
       dark: {
         primary: colors.purple.lighten3,
