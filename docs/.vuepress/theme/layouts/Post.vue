@@ -4,10 +4,15 @@
 
   <v-main>
     <v-container class="pt-16 pb-16">
-      <v-breadcrumbs :items="items"></v-breadcrumbs>
+      <breadcrumb
+        :page="$page"
+        :disable="[1, 2]"
+      />
 
       <h1>{{ $page.title }}</h1>
-      <Content />
+      <h5>Date</h5>
+
+      <Content class="mt-10" />
     </v-container>
   </v-main>
 
@@ -18,43 +23,17 @@
 <script>
 import headerTheme from '../components/Header';
 import footerTheme from '../components/Footer';
+import breadcrumb from '../components/Breadcrumb';
 
 export default {
   components: {
     headerTheme,
-    footerTheme
+    footerTheme,
+    breadcrumb,
   },
   data() {
     return {
-      items: []
     }
-  },
-
-  created() {
-    console.log(this.$page)
-
-    this.items = [
-      {
-        text: 'Home',
-        disabled: false,
-        href: '/',
-      },
-      {
-        text: 'Codebits',
-        disabled: false,
-        href: '/codebits',
-      },
-      {
-        text: 'JavaScript',
-        disabled: false,
-        href: '/codebits/javascript',
-      },
-      {
-        text: this.$page.title,
-        disabled: true,
-        href: '',
-      },
-    ]
   },
 }
 </script>
