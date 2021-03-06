@@ -2,8 +2,8 @@
   <div>
     <h3 class="mb-6">latest codebits</h3>
 
-    <v-row>
-      <v-col class="post-thumb" v-for="(val, ind) in getLatestPost()">
+    <div class="d-flex">
+      <div class="post-thumb" v-for="(val, ind) in getLatestPost()">
         <img :src="val.frontmatter.img"
           @click="openDialogPost(val)"
         />
@@ -12,8 +12,8 @@
           <h4>{{ val.frontmatter.title }}</h4>
           <h6>date</h6>
         </div>
-      </v-col>
-    </v-row>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -33,7 +33,7 @@ export default {
       @param string
       @return string
     */
-    getPostDate(val) {
+    getPostDateFromUrl(val) {
       let date = /(\d\d\d\d-\d\d-\d\d)/g.exec(val);
       return date && date[0];
     },
@@ -48,11 +48,11 @@ export default {
     getLatestPost() {
       let final = this.$site.pages
         .filter(v => {
-          return this.getPostDate(v.path);
+          return this.getPostDateFromUrl(v.path);
         })
         .sort((a, b) => {
-          let dateA = Number(new Date(this.getPostDate(b.path)))
-          let dateB = Number(new Date(this.getPostDate(a.path)))
+          let dateA = Number(new Date(this.getPostDateFromUrl(b.path)))
+          let dateB = Number(new Date(this.getPostDateFromUrl(a.path)))
           return dateA - dateB
         })
         .splice(0, this.postAmount);

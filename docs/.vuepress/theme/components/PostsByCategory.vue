@@ -10,7 +10,7 @@
 
       <div @click="gotoPost(val)">
         <h4>{{ val.frontmatter.title }}</h4>
-        <h6>{{ getPostDate(val.path) }}</h6>
+        <h6>{{ getPostDateFromUrl(val.path) }}</h6>
       </div>
     </div>
   </div>
@@ -53,7 +53,7 @@ export default {
       @param string
       @return string
     */
-    getPostDate(val) {
+    getPostDateFromUrl(val) {
       let date = /(\d\d\d\d-\d\d-\d\d)/g.exec(val);
       return date && date[0];
     },

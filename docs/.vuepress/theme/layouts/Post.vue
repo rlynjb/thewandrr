@@ -12,9 +12,34 @@
       <h1>{{ $page.title }}</h1>
       <h5>{{ $page.frontmatter.date ? $page.frontmatter.date : '' }}</h5>
 
+      <div v-if="$page.frontmatter.imgs" class="d-flex">
+        <div class="ma-3"
+          v-for="(val, ind) in $page.frontmatter.imgs">
+          <img :src="Object.keys(val)[0]"
+            @click="openDialog(ind)"
+          />
+          <p>{{ val[Object.keys(val)[0]] }}</p>
+        </div>
+      </div>
+
       <Content class="mt-10" />
     </v-container>
   </v-main>
+
+  <v-dialog
+    v-model="dialog"
+    width="500"
+  >
+    <v-carousel v-model="model">
+      <v-carousel-item
+        v-for="(img, ind) in $page.frontmatter.imgs"
+      >
+        {{ ind + 1 }}
+        <h3>{{ img[Object.keys(img)[0]] }}</h3>
+        <img :src="Object.keys(img)[0]" />
+      </v-carousel-item>
+    </v-carousel>
+  </v-dialog>
 
   <footer-theme />
 </v-app>
@@ -31,10 +56,20 @@ export default {
     footerTheme,
     breadcrumb,
   },
+
   data() {
     return {
+      dialog: false,
+      model: 0,
     }
   },
+
+  methods: {
+    openDialog(index) {
+      this.dialog = true;
+      this.model = index;
+    }
+  }
 }
 </script>
 
