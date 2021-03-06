@@ -24,26 +24,32 @@
         </v-row>
       </v-container>
 
-      <v-row class="deep-purple darken-4 pa-12">
+      <v-row class="deep-purple darken-4 pa-12 codebitsWrapper">
         <v-container>
           <v-col class="col-12">
             <h3>more tidbits</h3>
           </v-col>
 
           <v-col class="col-12">
-            <h3>js</h3>
+            <h3>javascript</h3>
+            <div class="d-flex">
+              <div class="mr-6"
+                v-for="val in getPostsByCategory('javascript')">
+                <img :src="val.frontmatter.img" />
+                <h4>{{ val.frontmatter.title }}</h4>
+              </div>
+            </div>
           </v-col>
 
           <v-col class="col-12">
-            <h3>algo & ds</h3>
-          </v-col>
-
-          <v-col class="col-12">
-            <h3>css</h3>
-          </v-col class="col-12">
-
-          <v-col class="col-12">
-            <h3>html</h3>
+            <h3>algorithm and data strucutre</h3>
+            <div class="d-flex">
+              <div class="mr-6"
+                v-for="val in getPostsByCategory('algorithm-and-data-structure')">
+                <img :src="val.frontmatter.img" />
+                <h4>{{ val.frontmatter.title }}</h4>
+              </div>
+            </div>
           </v-col>
         </v-container>
       </v-row>
@@ -151,11 +157,47 @@ export default {
   },
   created() {
     // checking for vuetify
-    console.log(this.$options)
+    console.log('FROM HOME', this.$site.pages)
+
+    /*
+      {
+        category: 'javascript',
+        posts: [
+          {
+            img: '',
+            title: '',
+            path: '',
+          }
+        ]
+      }
+    */
+
+   this.getPostsByCategory();
   },
+
+  methods: {
+    getCodebitsCategories() {
+      let categories = this.$site.pages
+        .map(v => {
+          let cat = /codebits\/(.*)\//g.exec(v.regularPath);
+          if (cat) {
+            return cat[1];
+          }
+        })
+        .filter(v => v);
+
+      return [...new Set(categories)];
+    },
+
+    getPostsByCategory(category) {
+      return this.$site.pages
+        .filter(v => v.regularPath.includes(category));
+    },
+  }
 }
 </script>
 
 <style lang="styl">
-
+.codebitsWrapper img
+  max-width: 250px;
 </style>

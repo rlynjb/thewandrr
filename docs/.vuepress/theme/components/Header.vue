@@ -8,7 +8,7 @@
 
       <v-col class="d-flex align-content-center justify-end flex-wrap">
         <v-btn text class="ml-3" color="primary">
-          tidbits
+          codebits
         </v-btn>
         <v-btn text class="ml-3" color="primary">
           links
