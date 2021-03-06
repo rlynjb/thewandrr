@@ -26,20 +26,11 @@
     </v-container>
   </v-main>
 
-  <v-dialog
-    v-model="dialog"
-    width="500"
-  >
-    <v-carousel v-model="model">
-      <v-carousel-item
-        v-for="(img, ind) in $page.frontmatter.imgs"
-      >
-        {{ ind + 1 }}
-        <h3>{{ img[Object.keys(img)[0]] }}</h3>
-        <img :src="Object.keys(img)[0]" />
-      </v-carousel-item>
-    </v-carousel>
-  </v-dialog>
+  <image-carousel-dialog
+    :imgs="$page.frontmatter.imgs"
+    :dialog="dialog"
+    :model="model"
+  />
 
   <footer-theme />
 </v-app>
@@ -49,12 +40,14 @@
 import headerTheme from '../components/Header';
 import footerTheme from '../components/Footer';
 import breadcrumb from '../components/Breadcrumb';
+import imageCarouselDialog from '../components/ImageCarouselDialog';
 
 export default {
   components: {
     headerTheme,
     footerTheme,
     breadcrumb,
+    imageCarouselDialog,
   },
 
   data() {
