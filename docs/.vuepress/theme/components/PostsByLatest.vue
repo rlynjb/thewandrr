@@ -1,22 +1,33 @@
 <template>
   <div>
-    <div class="post-thumb"
-      @click="gotoPost(getLatestPost()[0])"
-    >
-      <h3>latest codebits</h3>
-      <img :src="getLatestPost()[0].frontmatter.img" />
-      <h2>{{ getLatestPost()[0].frontmatter.title }}</h2>
-    </div>
+    <h3 class="mb-6">latest codebits</h3>
 
-    <v-btn
-      @click="openDialogPost(getLatestPost()[0])">
-      preview
-    </v-btn>
+    <v-row>
+      <v-col class="post-thumb" v-for="(val, ind) in getLatestPost()">
+        <img :src="val.frontmatter.img"
+          @click="openDialogPost(val)"
+        />
+
+        <div @click="gotoPost(val)">
+          <h4>{{ val.frontmatter.title }}</h4>
+          <h6>date</h6>
+        </div>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    postAmount: {
+      required: false,
+      type: Number,
+      default: function() {
+        return 1;
+      }
+    }
+  },
   methods: {
     /*
       @param string
@@ -43,7 +54,8 @@ export default {
           let dateA = Number(new Date(this.getPostDate(b.path)))
           let dateB = Number(new Date(this.getPostDate(a.path)))
           return dateA - dateB
-        });
+        })
+        .splice(0, this.postAmount);
 
       return final
     },

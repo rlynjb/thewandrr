@@ -3,18 +3,16 @@
   <div class="mr-6"
     v-for="val in getPostsByCategory(category)"
   >
-    <div class="post-thumb"
-      @click="gotoPost(val)"
-    >
-      <img :src="val.frontmatter.img" />
-      <h4>{{ val.frontmatter.title }}</h4>
-      <h6>{{ getPostDate(val.path) }}</h6>
-    </div>
+    <div class="post-thumb">
+      <img :src="val.frontmatter.img"
+        @click="openDialogPost(val)"
+      />
 
-    <v-btn
-      @click="openDialogPost(val)">
-      preview
-    </v-btn>
+      <div @click="gotoPost(val)">
+        <h4>{{ val.frontmatter.title }}</h4>
+        <h6>{{ getPostDate(val.path) }}</h6>
+      </div>
+    </div>
   </div>
 </div>
 </template>

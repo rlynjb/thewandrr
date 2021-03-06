@@ -6,7 +6,7 @@
       <v-container class="pt-16 pb-16">
         <v-row>
           <v-col class="col-8 latestPost">
-            <posts-by-latest @onSelectedPost="onSelectedPost" />
+            <posts-by-latest :postAmount="2" @onSelectedPost="onSelectedPost" />
           </v-col>
 
           <v-col class="col-4">
@@ -24,7 +24,7 @@
         </v-row>
       </v-container>
 
-      <v-row class="deep-purple darken-4 pt-12 pb-12 codebitsWrapper">
+      <v-row class="deep-purple darken-4 pt-12 pb-12 postsWrapper">
         <v-container>
           <v-col class="col-12 pb-12">
             <h3>javascript</h3>
@@ -172,7 +172,7 @@ export default {
       @param string
       @return [string]
     */
-    getCodebitsCategories(parentCategory) {
+    getCategoriesByParent(parentCategory) {
       let categories = this.$site.pages
         .map(v => {
           let cat = /codebits\/(.*)\//g.exec(v.regularPath);
@@ -189,7 +189,7 @@ export default {
 </script>
 
 <style lang="styl">
-.codebitsWrapper img
+.postsWrapper img
   max-width: 250px;
 
 .latestPost img
