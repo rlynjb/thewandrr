@@ -27,6 +27,9 @@ export default {
   },
 
   methods: {
+    cleanBreadcrumbTitle(val) {
+      return val[0].toUpperCase() + val.slice(1).toLowerCase()
+    },
     items() {
       let trail = this.page.path.split('/');
       let trailLastIndex = '';
@@ -42,7 +45,7 @@ export default {
 
         if (i && trail.length - 1 != i) {
           items.push({
-            text: v.charAt(0).toUpperCase() + v.slice(1),
+            text: this.cleanBreadcrumbTitle(v),
             href: this.disable.includes(i) ? '' : trailLastIndex + '/' + v
           });
 

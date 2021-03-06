@@ -10,7 +10,7 @@
       />
 
       <h1>{{ $page.title }}</h1>
-      <h5>Date</h5>
+      <h5>{{ $page.frontmatter.date ? $page.frontmatter.date : '' }}</h5>
 
       <Content class="mt-10" />
     </v-container>

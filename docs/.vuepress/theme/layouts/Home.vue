@@ -6,15 +6,7 @@
       <v-container class="pt-16 pb-16">
         <v-row>
           <v-col class="col-8 latestPost">
-            <div @click="gotoPost(getLatestPost()[0])">
-              <h3>latest codebits</h3>
-              <img :src="getLatestPost()[0].frontmatter.img" />
-              <h2>{{ getLatestPost()[0].frontmatter.title }}</h2>
-              <v-btn
-                @click="openDialogPost(getLatestPost()[0])">
-                preview
-              </v-btn>
-            </div>
+            <posts-by-latest @onSelectedPost="onSelectedPost" />
           </v-col>
 
           <v-col class="col-4">
@@ -36,38 +28,18 @@
         <v-container>
           <v-col class="col-12 pb-12">
             <h3>javascript</h3>
-            <div class="d-flex">
-              <div class="mr-6"
-                v-for="val in getPostsByCategory('javascript')"
-                @click="gotoPost(val)"
-              >
-                <img :src="val.frontmatter.img" />
-                <h4>{{ val.frontmatter.title }}</h4>
-                <h6>{{ getPostDate(val.path) }}</h6>
-                <v-btn
-                  @click="openDialogPost(val)">
-                  preview
-                </v-btn>
-              </div>
-            </div>
+            <posts-by-category
+              category="javascript"
+              @onSelectedPost="onSelectedPost"
+            />
           </v-col>
 
           <v-col class="col-12">
             <h3>algorithm and data strucutre</h3>
-            <div class="d-flex">
-              <div class="mr-6"
-                v-for="val in getPostsByCategory('algorithm-and-data-structure')"
-                @click="gotoPost(val)"
-              >
-                <img :src="val.frontmatter.img" />
-                <h4>{{ val.frontmatter.title }}</h4>
-                <h6>{{ getPostDate(val.path) }}</h6>
-                <v-btn
-                  @click="openDialogPost(val)">
-                  preview
-                </v-btn>
-              </div>
-            </div>
+            <posts-by-category
+              category="algorithm-and-data-structure"
+              @onSelectedPost="onSelectedPost"
+            />
           </v-col>
         </v-container>
       </v-row>
@@ -171,34 +143,29 @@
 import headerTheme from '../components/Header';
 import footerTheme from '../components/Footer';
 import btnIcon from '../components/BtnIcon';
+import postsByCategory from '../components/PostsByCategory';
+import postsByLatest from '../components/PostsByLatest';
 
 export default {
   components: {
     headerTheme,
     footerTheme,
     btnIcon,
+    postsByCategory,
+    postsByLatest
   },
+
   data() {
     return {
       dialog: false,
       selectedPost: null,
     }
   },
-  created() {
-    // checking for vuetify
-    //console.log('FROM HOME', this.$site.pages)
-  },
 
   methods: {
-    gotoPost(val) {
-      this.$router.push({
-        path: val.path
-      });
-    },
-
-    openDialogPost(val) {
-      this.dialog = true;
-      this.selectedPost = val;
+    onSelectedPost(val) {
+      this.dialog = val.dialog;
+      this.selectedPost = val.selectedPost;
     },
 
     /*
@@ -217,41 +184,6 @@ export default {
 
       return [...new Set(categories)];
     },
-
-    /*
-      @param string
-      @return [object]
-    */
-    getPostsByCategory(category) {
-      return this.$site.pages
-        .filter(v => v.regularPath.includes(category));
-    },
-
-    /*
-      @param string
-      @return string
-    */
-    getPostDate(val) {
-      let date = /(\d\d\d\d-\d\d-\d\d)/g.exec(val);
-      return date && date[0];
-    },
-
-    /*
-      @return [object]
-    */
-    getLatestPost() {
-      let final = this.$site.pages
-        .filter(v => {
-          return this.getPostDate(v.path);
-        })
-        .sort((a, b) => {
-          let dateA = Number(new Date(this.getPostDate(b.path)))
-          let dateB = Number(new Date(this.getPostDate(a.path)))
-          return dateA - dateB
-        });
-
-      return final
-    },
   }
 }
 </script>
@@ -262,4 +194,7 @@ export default {
 
 .latestPost img
   max-width: 180px;
+
+.post-thumb
+  cursor: pointer;
 </style>
