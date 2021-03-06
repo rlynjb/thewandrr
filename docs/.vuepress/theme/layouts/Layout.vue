@@ -1,13 +1,13 @@
 <template>
-  <v-app class="theme-container">
-    <header-theme />
+<v-app class="theme-container">
+  <header-theme />
 
-    <v-main>
-      <Content />
-    </v-main>
+  <v-main>
+    <Content />
+  </v-main>
 
-    <footer-theme />
-  </v-app>
+  <footer-theme />
+</v-app>
 </template>
 
 <script>

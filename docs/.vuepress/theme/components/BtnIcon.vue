@@ -2,7 +2,8 @@
 <v-btn
   icon
   :href="hrefLink"
-  :target="target">
+  :target="target"
+>
   <v-icon :size="size">
     {{ iconName }}
   </v-icon>

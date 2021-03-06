@@ -24,7 +24,7 @@
 
       <v-col class="col-6">
         <v-btn text class="ml-3" color="primary">
-          tidbits
+          codebits
         </v-btn>
         <v-btn text class="ml-3" color="primary">
           links

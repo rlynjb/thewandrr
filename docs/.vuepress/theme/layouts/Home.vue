@@ -3,12 +3,20 @@
     <header-theme />
 
     <v-main>
-      <v-container class="pa-12">
+      <v-container class="pt-16 pb-16">
         <v-row>
-          <v-col class="col-8">
-            <h3>latest tidbit</h3>
-            get latest post here
+          <v-col class="col-8 latestPost">
+            <div @click="gotoPost(getLatestPost()[0])">
+              <h3>latest codebits</h3>
+              <img :src="getLatestPost()[0].frontmatter.img" />
+              <h2>{{ getLatestPost()[0].frontmatter.title }}</h2>
+              <v-btn
+                @click="openDialogPost(getLatestPost()[0])">
+                preview
+              </v-btn>
+            </div>
           </v-col>
+
           <v-col class="col-4">
             <h2>Hello, I'm Reina</h2>
             <p>
@@ -24,19 +32,22 @@
         </v-row>
       </v-container>
 
-      <v-row class="deep-purple darken-4 pa-12 codebitsWrapper">
+      <v-row class="deep-purple darken-4 pt-12 pb-12 codebitsWrapper">
         <v-container>
-          <v-col class="col-12">
-            <h3>more tidbits</h3>
-          </v-col>
-
-          <v-col class="col-12">
+          <v-col class="col-12 pb-12">
             <h3>javascript</h3>
             <div class="d-flex">
               <div class="mr-6"
-                v-for="val in getPostsByCategory('javascript')">
+                v-for="val in getPostsByCategory('javascript')"
+                @click="gotoPost(val)"
+              >
                 <img :src="val.frontmatter.img" />
                 <h4>{{ val.frontmatter.title }}</h4>
+                <h6>{{ getPostDate(val.path) }}</h6>
+                <v-btn
+                  @click="openDialogPost(val)">
+                  preview
+                </v-btn>
               </div>
             </div>
           </v-col>
@@ -45,9 +56,16 @@
             <h3>algorithm and data strucutre</h3>
             <div class="d-flex">
               <div class="mr-6"
-                v-for="val in getPostsByCategory('algorithm-and-data-structure')">
+                v-for="val in getPostsByCategory('algorithm-and-data-structure')"
+                @click="gotoPost(val)"
+              >
                 <img :src="val.frontmatter.img" />
                 <h4>{{ val.frontmatter.title }}</h4>
+                <h6>{{ getPostDate(val.path) }}</h6>
+                <v-btn
+                  @click="openDialogPost(val)">
+                  preview
+                </v-btn>
               </div>
             </div>
           </v-col>
@@ -70,7 +88,7 @@
               iconName="fab fa-facebook-f"
               size="36"
             />
-            <h4 class="mt-4">Where I post my tidbits</h4>
+            <h4 class="mt-4">Where I post my codebits</h4>
           </v-col>
 
           <v-col>
@@ -136,6 +154,16 @@
     </v-main>
 
     <footer-theme />
+
+    <v-dialog
+      v-model="dialog"
+      width="500"
+    >
+      <div v-if="selectedPost">
+        <h3>{{ selectedPost.frontmatter.title }}</h3>
+        <img :src="selectedPost.frontmatter.img" />
+      </div>
+    </v-dialog>
   </v-app>
 </template>
 
@@ -152,31 +180,32 @@ export default {
   },
   data() {
     return {
-
+      dialog: false,
+      selectedPost: null,
     }
   },
   created() {
     // checking for vuetify
-    console.log('FROM HOME', this.$site.pages)
-
-    /*
-      {
-        category: 'javascript',
-        posts: [
-          {
-            img: '',
-            title: '',
-            path: '',
-          }
-        ]
-      }
-    */
-
-   this.getPostsByCategory();
+    //console.log('FROM HOME', this.$site.pages)
   },
 
   methods: {
-    getCodebitsCategories() {
+    gotoPost(val) {
+      this.$router.push({
+        path: val.path
+      });
+    },
+
+    openDialogPost(val) {
+      this.dialog = true;
+      this.selectedPost = val;
+    },
+
+    /*
+      @param string
+      @return [string]
+    */
+    getCodebitsCategories(parentCategory) {
       let categories = this.$site.pages
         .map(v => {
           let cat = /codebits\/(.*)\//g.exec(v.regularPath);
@@ -189,9 +218,39 @@ export default {
       return [...new Set(categories)];
     },
 
+    /*
+      @param string
+      @return [object]
+    */
     getPostsByCategory(category) {
       return this.$site.pages
         .filter(v => v.regularPath.includes(category));
+    },
+
+    /*
+      @param string
+      @return string
+    */
+    getPostDate(val) {
+      let date = /(\d\d\d\d-\d\d-\d\d)/g.exec(val);
+      return date && date[0];
+    },
+
+    /*
+      @return [object]
+    */
+    getLatestPost() {
+      let final = this.$site.pages
+        .filter(v => {
+          return this.getPostDate(v.path);
+        })
+        .sort((a, b) => {
+          let dateA = Number(new Date(this.getPostDate(b.path)))
+          let dateB = Number(new Date(this.getPostDate(a.path)))
+          return dateA - dateB
+        });
+
+      return final
     },
   }
 }
@@ -200,4 +259,7 @@ export default {
 <style lang="styl">
 .codebitsWrapper img
   max-width: 250px;
+
+.latestPost img
+  max-width: 180px;
 </style>
