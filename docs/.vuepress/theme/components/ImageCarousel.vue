@@ -1,5 +1,9 @@
 <template>
-<v-carousel v-model="modelLocal">
+<v-carousel
+  v-model="modelLocal"
+  :show-arrows="imgs.length ? true : false"
+  :hide-delimiters="imgs.length ? false : true"
+>
   <v-carousel-item v-if="cover != ''">
     <img :src="cover" />
   </v-carousel-item>
