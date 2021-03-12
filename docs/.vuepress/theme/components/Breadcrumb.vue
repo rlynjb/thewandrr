@@ -39,7 +39,7 @@ export default {
         if (i === 0) {
           items.push({
             text: 'Home',
-            href: '/'
+            href: this.$site.base
           })
         }
 

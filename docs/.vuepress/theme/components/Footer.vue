@@ -3,7 +3,9 @@
   <v-container>
     <v-row>
       <v-col class="col-6">
-        <img class="logo" :src="$site.base + '/logo.png'" />
+        <a :href="$site.base">
+          <img class="logo" :src="$site.base + '/logo.png'" />
+        </a>
 
         <div>
           <btn-icon

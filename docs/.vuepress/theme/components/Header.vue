@@ -3,7 +3,9 @@
   <v-container>
     <v-row class="justify-space-between">
       <v-col>
-        <img class="logo" :src="$site.base + '/logo.png'" />
+        <a :href="$site.base">
+          <img class="logo" :src="$site.base + '/logo.png'" />
+        </a>
       </v-col>
 
       <v-col class="d-flex align-content-center justify-end flex-wrap">
