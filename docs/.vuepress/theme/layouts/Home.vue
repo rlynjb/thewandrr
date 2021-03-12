@@ -132,8 +132,10 @@
       width="500"
     >
       <div v-if="selectedPost">
-        <h3>{{ selectedPost.frontmatter.title }}</h3>
-        <img :src="selectedPost.frontmatter.img" />
+        <image-carousel
+          :imgs="selectedPost.frontmatter.imgs"
+          :cover="selectedPost.frontmatter.img"
+        />
       </div>
     </v-dialog>
   </v-app>
@@ -145,6 +147,7 @@ import footerTheme from '../components/Footer';
 import btnIcon from '../components/BtnIcon';
 import postsByCategory from '../components/PostsByCategory';
 import postsByLatest from '../components/PostsByLatest';
+import imageCarousel from '../components/ImageCarousel';
 
 export default {
   components: {
@@ -152,7 +155,8 @@ export default {
     footerTheme,
     btnIcon,
     postsByCategory,
-    postsByLatest
+    postsByLatest,
+    imageCarousel,
   },
 
   data() {

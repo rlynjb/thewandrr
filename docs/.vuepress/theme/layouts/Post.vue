@@ -12,8 +12,8 @@
       <h1>{{ $page.title }}</h1>
       <h5>{{ $page.frontmatter.date ? $page.frontmatter.date : '' }}</h5>
 
-      <div v-if="$page.frontmatter.imgs" class="d-flex">
-        <div class="ma-3"
+      <div v-if="$page.frontmatter.imgs" class="d-flex row">
+        <div class="col-2 ma-3"
           v-for="(val, ind) in $page.frontmatter.imgs">
           <img :src="Object.keys(val)[0]"
             @click="openDialog(ind)"
@@ -26,11 +26,15 @@
     </v-container>
   </v-main>
 
-  <image-carousel-dialog
-    :imgs="$page.frontmatter.imgs"
-    :dialog="dialog"
-    :model="model"
-  />
+  <v-dialog
+    v-model="dialog"
+    width="500"
+  >
+    <image-carousel
+      :imgs="$page.frontmatter.imgs"
+      :model="model"
+    />
+  </v-dialog>
 
   <footer-theme />
 </v-app>
@@ -40,14 +44,14 @@
 import headerTheme from '../components/Header';
 import footerTheme from '../components/Footer';
 import breadcrumb from '../components/Breadcrumb';
-import imageCarouselDialog from '../components/ImageCarouselDialog';
+import imageCarousel from '../components/ImageCarousel';
 
 export default {
   components: {
     headerTheme,
     footerTheme,
     breadcrumb,
-    imageCarouselDialog,
+    imageCarousel,
   },
 
   data() {
