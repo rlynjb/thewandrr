@@ -13,7 +13,10 @@
           codebits
         </v-btn>
         <v-btn text class="ml-3" color="primary">
-          links
+          social links
+        </v-btn>
+        <v-btn text class="ml-3" color="primary">
+          projects
         </v-btn>
         <v-btn text class="ml-3" color="primary">
           contact

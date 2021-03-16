@@ -114,12 +114,17 @@
 
       <v-row>
         <v-col class="pa-16 text-center deep-purple lighten-1">
-          website builder
+          purpl website builder
           <h3>coming soon</h3>
         </v-col>
 
         <v-col class="pa-16 text-center deep-purple darken-1">
           vuepress vuetify theme
+          <h3>coming soon</h3>
+        </v-col>
+
+        <v-col class="pa-16 text-center deep-purple lighten-1">
+          purpl affiliate store
           <h3>coming soon</h3>
         </v-col>
       </v-row>

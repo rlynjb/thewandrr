@@ -4,7 +4,7 @@
     v-for="val in getPostsByCategory(category)"
   >
     <div class="post-thumb">
-      <img :src="val.frontmatter.img"
+      <img :src="$site.base + val.frontmatter.img"
         @click="openDialogPost(val)"
       />
 
