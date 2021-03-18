@@ -16,7 +16,7 @@
         <div class="col-2 ma-3"
           v-if="$page.frontmatter.img">
           <img :src="$site.base + $page.frontmatter.img"
-            @click="openDialog(ind)"
+            @click="openDialog(0)"
           />
         </div>
 

@@ -35,9 +35,9 @@
           </v-col>
 
           <v-col class="col-12">
-            <h3>algorithm and data strucutre</h3>
+            <h3>e-commerce</h3>
             <posts-by-category
-              category="algorithm-and-data-structure"
+              category="ecommerce"
               @onSelectedPost="onSelectedPost"
             />
           </v-col>
@@ -114,18 +114,18 @@
 
       <v-row>
         <v-col class="pa-16 text-center deep-purple lighten-1">
-          purpl website builder
-          <h3>coming soon</h3>
+          <h3>Coming Soon</h3>
+          <img :src="$site.base + '/purplwebsitebuilder.png'" />
         </v-col>
 
         <v-col class="pa-16 text-center deep-purple darken-1">
-          vuepress vuetify theme
-          <h3>coming soon</h3>
+          <h3>Coming Soon</h3>
+          <img :src="$site.base + '/themepj.png'" />
         </v-col>
 
         <v-col class="pa-16 text-center deep-purple lighten-1">
-          purpl affiliate store
-          <h3>coming soon</h3>
+          <h3>Coming Soon</h3>
+          <img :src="$site.base + '/purplstore.png'" />
         </v-col>
       </v-row>
     </v-main>

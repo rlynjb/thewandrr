@@ -9,14 +9,14 @@
 
         <div>
           <btn-icon
-            hrefLink="https://www.youtube.com/channel/UCHktUhVF2ZR5JkVunt_OLGw"
+            hrefLink="https://www.linkedin.com/in/rlynpro/"
             target="_blank"
             iconName="fab fa-linkedin-in"
             size="24"
           />
 
           <btn-icon
-            hrefLink="https://www.youtube.com/channel/UCHktUhVF2ZR5JkVunt_OLGw"
+            hrefLink="https://docs.google.com/document/d/1VN9dtP5_oyVELBfDxY7qXaFLu4iSs4yOEK8vqjDoFG8/edit?usp=sharing"
             target="_blank"
             iconName="far fa-file"
             size="24"

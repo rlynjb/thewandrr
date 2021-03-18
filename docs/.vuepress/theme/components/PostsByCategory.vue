@@ -1,6 +1,6 @@
 <template>
 <div class="d-flex">
-  <div class="mr-6"
+  <div class="col-3"
     v-for="val in getPostsByCategory(category)"
   >
     <div class="post-thumb">

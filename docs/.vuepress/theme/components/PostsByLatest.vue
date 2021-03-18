@@ -3,7 +3,7 @@
     <h3 class="mb-6">latest codebits</h3>
 
     <div class="d-flex">
-      <div class="post-thumb mr-4" v-for="(val, ind) in getLatestPost()">
+      <div class="post-thumb col-3" v-for="(val, ind) in getLatestPost()">
         <img :src="val.frontmatter.img"
           @click="openDialogPost(val)"
         />

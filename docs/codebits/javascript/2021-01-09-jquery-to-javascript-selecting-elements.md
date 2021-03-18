@@ -1,18 +1,14 @@
 ---
 title: From jQuery to vanilla JavaScript - Selecting Elements
 layout: Post
-img: 'https://placehold.it/500x500'
+img: './cheatsheet_from_jquery_to_javascript_selecting_elements/1.png'
 imgs:
-  - 'https://placehold.it/500x500': 'caption1'
-  - 'https://placehold.it/500x500': 'caption2'
-  - 'https://placehold.it/500x500': 'caption3'
-  - 'https://placehold.it/500x500': 'caption4'
-  - 'https://placehold.it/500x500': 'caption5'
-  - 'https://placehold.it/500x500': 'caption6'
-  - 'https://placehold.it/500x500': 'caption7'
-  - 'https://placehold.it/500x500': 'caption8'
-  - 'https://placehold.it/500x500': 'caption9'
-  - 'https://placehold.it/500x500': 'caption10'
+  - './cheatsheet_from_jquery_to_javascript_selecting_elements/2.png': 'caption1'
+  - './cheatsheet_from_jquery_to_javascript_selecting_elements/3.png': 'caption2'
+  - './cheatsheet_from_jquery_to_javascript_selecting_elements/4.png': 'caption3'
+  - './cheatsheet_from_jquery_to_javascript_selecting_elements/5.png': 'caption4'
+  - './cheatsheet_from_jquery_to_javascript_selecting_elements/6.png': 'caption5'
+  - './cheatsheet_from_jquery_to_javascript_selecting_elements/7.png': 'caption6'
 ---
 
 this is my post on stuff

@@ -11,7 +11,6 @@
   <v-carousel-item
     v-for="(img, ind) in imgs"
   >
-    {{ ind + 1 }}
     <h3>{{ img[Object.keys(img)[0]] }}</h3>
     <img :src="$site.base + Object.keys(img)[0]" />
   </v-carousel-item>
