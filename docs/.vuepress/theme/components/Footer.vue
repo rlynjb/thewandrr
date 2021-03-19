@@ -23,18 +23,6 @@
           />
         </div>
       </v-col>
-
-      <v-col class="col-6">
-        <v-btn text class="ml-3" color="primary">
-          codebits
-        </v-btn>
-        <v-btn text class="ml-3" color="primary">
-          links
-        </v-btn>
-        <v-btn text class="ml-3" color="primary">
-          contact
-        </v-btn>
-      </v-col>
     </v-row>
     <v-row class="pt-12">
       <v-col class="col-12">

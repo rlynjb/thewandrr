@@ -24,7 +24,7 @@
         </v-row>
       </v-container>
 
-      <v-row class="deep-purple darken-4 pt-12 pb-12 postsWrapper">
+      <v-row id="codebits" class="deep-purple darken-4 pt-12 pb-12 postsWrapper">
         <v-container>
           <v-col class="col-12 pb-12">
             <h3>javascript</h3>
@@ -44,7 +44,7 @@
         </v-container>
       </v-row>
 
-      <v-container class="pt-16 pb-16 justify-center">
+      <v-container id="socialLinks" class="pt-16 pb-16 justify-center">
         <v-row class="text-center">
           <v-col>
             <btn-icon
@@ -112,25 +112,28 @@
         </v-row>
       </v-container>
 
-      <v-row>
-        <v-col class="pa-16 text-center deep-purple lighten-1">
-          <h3>Coming Soon</h3>
-          <img :src="$site.base + '/purplwebsitebuilder.png'" />
-        </v-col>
+      <v-row id="projects">
+        <project-tile
+          color="deep-purple lighten-1"
+          :comingsoon="true"
+          img="purpl_template_builder.png"
+        />
 
-        <v-col class="pa-16 text-center deep-purple darken-1">
-          <h3>Coming Soon</h3>
-          <img :src="$site.base + '/themepj.png'" />
-        </v-col>
+        <project-tile
+          color="deep-purple darken-1"
+          :comingsoon="true"
+          img="themepj.png"
+        />
 
-        <v-col class="pa-16 text-center deep-purple lighten-1">
-          <h3>Coming Soon</h3>
-          <img :src="$site.base + '/purplstore.png'" />
-        </v-col>
+        <project-tile
+          color="deep-purple lighten-1"
+          :comingsoon="true"
+          img="ecompurpl_affiliate_store.png"
+        />
       </v-row>
     </v-main>
 
-    <footer-theme />
+    <footer-theme id="contact" />
 
     <v-dialog
       v-model="dialog"
@@ -153,6 +156,7 @@ import btnIcon from '../components/BtnIcon';
 import postsByCategory from '../components/PostsByCategory';
 import postsByLatest from '../components/PostsByLatest';
 import imageCarousel from '../components/ImageCarousel';
+import projectTile from '../components/ProjectTile';
 
 export default {
   components: {
@@ -162,6 +166,7 @@ export default {
     postsByCategory,
     postsByLatest,
     imageCarousel,
+    projectTile,
   },
 
   data() {

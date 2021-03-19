@@ -9,16 +9,20 @@
       </v-col>
 
       <v-col class="d-flex align-content-center justify-end flex-wrap">
-        <v-btn text class="ml-3" color="primary">
+        <v-btn text class="ml-3" color="primary"
+          @click="gotoSection('#codebits')">
           codebits
         </v-btn>
-        <v-btn text class="ml-3" color="primary">
+        <v-btn text class="ml-3" color="primary"
+          @click="gotoSection('#socialLinks')">
           social links
         </v-btn>
-        <v-btn text class="ml-3" color="primary">
+        <v-btn text class="ml-3" color="primary"
+          @click="gotoSection('#projects')">
           projects
         </v-btn>
-        <v-btn text class="ml-3" color="primary">
+        <v-btn text class="ml-3" color="primary"
+          @click="gotoSection('#contact')">
           contact
         </v-btn>
       </v-col>
@@ -34,6 +38,13 @@ export default {
 
     }
   },
+
+  methods: {
+    gotoSection(pathHash) {
+      if (this.$router.currentRoute.hash === pathHash) return;
+      this.$router.push({ path: pathHash });
+    }
+  }
 }
 </script>
 
