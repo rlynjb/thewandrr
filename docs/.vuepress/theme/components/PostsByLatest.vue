@@ -10,7 +10,7 @@
 
         <div @click="gotoPost(val)">
           <h4>{{ val.frontmatter.title }}</h4>
-          <h6>date</h6>
+          <h6>{{ formatDate(val.date) }}</h6>
         </div>
       </div>
     </div>
@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import moment from 'moment';
+
 export default {
   props: {
     postAmount: {
@@ -29,6 +31,10 @@ export default {
     }
   },
   methods: {
+    formatDate(date) {
+      return moment(date).format('MMMM Do YYYY');
+    },
+
     /*
       @param string
       @return string
@@ -50,10 +56,16 @@ export default {
         .filter(v => {
           return this.getPostDateFromUrl(v.path);
         })
+        .map(obj => {
+          return {
+            ...obj,
+            date: this.getPostDateFromUrl(obj.path)
+          }
+        })
         .sort((a, b) => {
-          let dateA = Number(new Date(this.getPostDateFromUrl(b.path)))
-          let dateB = Number(new Date(this.getPostDateFromUrl(a.path)))
-          return dateA - dateB
+          let dateA = this.getPostDateFromUrl(a.path)
+          let dateB = this.getPostDateFromUrl(b.path)
+          return new Date(dateB) - new Date(dateA)
         })
         .splice(0, this.postAmount);
 

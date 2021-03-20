@@ -10,7 +10,7 @@
 
       <div @click="gotoPost(val)">
         <h4>{{ val.frontmatter.title }}</h4>
-        <h6>{{ getPostDateFromUrl(val.path) }}</h6>
+        <h6>{{ formatDate(val.date) }}</h6>
       </div>
     </div>
   </div>
@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import moment from 'moment';
+
 export default {
   props: {
     category: {
@@ -36,6 +38,10 @@ export default {
   },
 
   methods: {
+    formatDate(date) {
+      return moment(date).format('MMMM Do YYYY');
+    },
+
     gotoPost(val) {
       this.$router.push({ path: val.path });
     },
@@ -46,7 +52,21 @@ export default {
     */
     getPostsByCategory(category) {
       return this.$site.pages
-        .filter(v => v.regularPath.includes(category));
+        .filter(v => v.regularPath.includes(category))
+        .filter(v => {
+          return this.getPostDateFromUrl(v.path);
+        })
+        .map(obj => {
+          return {
+            ...obj,
+            date: this.getPostDateFromUrl(obj.path)
+          }
+        })
+        .sort((a, b) => {
+          let dateA = this.getPostDateFromUrl(a.path)
+          let dateB = this.getPostDateFromUrl(b.path)
+          return new Date(dateB) - new Date(dateA)
+        })
     },
 
     /*
