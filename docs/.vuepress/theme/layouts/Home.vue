@@ -27,7 +27,7 @@
       <v-row id="codebits" class="deep-purple darken-4 pt-12 pb-12 postsWrapper">
         <v-container>
           <v-col class="col-12 pb-12">
-            <h3>javascript</h3>
+            <h2 class="font-weight-medium">javascript</h2>
             <posts-by-category
               category="javascript"
               @onSelectedPost="onSelectedPost"
@@ -35,7 +35,7 @@
           </v-col>
 
           <v-col class="col-12">
-            <h3>e-commerce</h3>
+            <h2 class="font-weight-medium">e-commerce</h2>
             <posts-by-category
               category="ecommerce"
               @onSelectedPost="onSelectedPost"

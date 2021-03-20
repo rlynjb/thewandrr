@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 class="mb-6">latest codebits</h3>
+    <h2 class="font-weight-medium">latest codebits</h2>
 
     <div class="d-flex">
       <div class="post-thumb col-3" v-for="(val, ind) in getLatestPost()">
@@ -10,7 +10,9 @@
 
         <div @click="gotoPost(val)">
           <h4>{{ val.frontmatter.title }}</h4>
-          <h6>{{ formatDate(val.date) }}</h6>
+          <h5 class="font-weight-medium grey--text lighten-5">
+            {{ formatDate(val.date) }}
+          </h5>
         </div>
       </div>
     </div>
