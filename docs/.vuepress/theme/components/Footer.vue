@@ -3,8 +3,8 @@
   <v-container>
     <v-row>
       <v-col class="col-12 text-center pa-12">
-        <a :href="$site.base">
-          <img class="logo" :src="$site.base + '/logo.png'" />
+        <a href="/">
+          <img class="logo" src="/logo.png" />
         </a>
 
         <h2 class="mt-12">Get Intouch</h2>

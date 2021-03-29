@@ -5,14 +5,14 @@
   :hide-delimiters="imgs.length ? false : true"
 >
   <v-carousel-item v-if="cover != ''">
-    <img :src="$site.base + cover" />
+    <img :src="'/' + cover" />
   </v-carousel-item>
 
   <v-carousel-item
     v-for="(img, ind) in imgs"
   >
     <h3>{{ img[Object.keys(img)[0]] }}</h3>
-    <img :src="$site.base + Object.keys(img)[0]" />
+    <img :src="'/' + Object.keys(img)[0]" />
   </v-carousel-item>
 </v-carousel>
 </template>

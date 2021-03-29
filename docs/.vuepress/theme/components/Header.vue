@@ -3,8 +3,8 @@
   <v-container>
     <v-row class="justify-space-between">
       <v-col>
-        <a :href="$site.base">
-          <img class="logo" :src="$site.base + '/logo.png'" />
+        <a href="/">
+          <img class="logo" src="/logo.png" />
         </a>
       </v-col>
 

@@ -15,14 +15,14 @@
       <div v-if="$page.frontmatter.imgs" class="d-flex row">
         <div class="col-2 ma-3"
           v-if="$page.frontmatter.img">
-          <img :src="$site.base + $page.frontmatter.img"
+          <img :src="'/' + $page.frontmatter.img"
             @click="openDialog(0)"
           />
         </div>
 
         <div class="col-2 ma-3"
           v-for="(val, ind) in $page.frontmatter.imgs">
-          <img :src="$site.base + Object.keys(val)[0]"
+          <img :src="'/' + Object.keys(val)[0]"
             @click="openDialog(ind)"
           />
           <p>{{ val[Object.keys(val)[0]] }}</p>

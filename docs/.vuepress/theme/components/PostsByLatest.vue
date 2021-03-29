@@ -4,7 +4,7 @@
 
     <div class="d-flex">
       <div class="post-thumb col-3" v-for="(val, ind) in getLatestPost()">
-        <img :src="val.frontmatter.img"
+        <img :src="'/' + val.frontmatter.img"
           @click="openDialogPost(val)"
         />
 

@@ -1,7 +1,7 @@
 <template>
 <v-col :class="'pa-16 text-center ' + color">
   <h3 v-if="comingsoon">Coming Soon</h3>
-  <img :src="$site.base + '/' + img" />
+  <img :src="'/' + img" />
 </v-col>
 </template>
 
