@@ -1,6 +1,6 @@
 <template>
 <v-footer>
-  <v-container>
+  <v-container fluid>
     <v-row>
       <v-col class="col-12 text-center pa-12">
         <a href="/">

@@ -1,6 +1,6 @@
 <template>
-<div class="d-flex">
-  <div class="col-3"
+<div class="d-flex" style="overflow-y: auto;">
+  <div class="col postItem"
     v-for="val in getPostsByCategory(category)"
   >
     <div class="post-thumb">
@@ -89,3 +89,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.postItem {
+  min-width: 200px;
+}
+</style>

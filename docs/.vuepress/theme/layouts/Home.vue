@@ -3,13 +3,21 @@
     <header-theme />
 
     <v-main>
-      <v-container class="pt-16 pb-16">
+      <v-container fluid class="pt-16 pb-16">
         <v-row>
-          <v-col class="col-8 latestPost">
+          <v-col class="latestPost"
+            cols="12"
+            sm="12"
+            md="8"
+            lg="8">
             <posts-by-latest :postAmount="2" @onSelectedPost="onSelectedPost" />
           </v-col>
 
-          <v-col class="col-4">
+          <v-col
+            cols="12"
+            sm="12"
+            md="4"
+            lg="4">
             <h2>Hello, I'm Reina</h2>
             <p>
               I'm a Software Engineer with a focus on Front-End Development.
@@ -24,9 +32,12 @@
         </v-row>
       </v-container>
 
-      <v-row id="codebits" class="deep-purple darken-4 pt-12 pb-12 postsWrapper">
-        <v-container>
-          <v-col class="col-12 pb-12">
+      <v-container
+        fluid
+        class="deep-purple darken-4 pt-12 pb-12 postsWrapper">
+        <v-row id="codebits">
+          <v-col cols="12"
+            class="pb-12">
             <h2 class="font-weight-medium">javascript</h2>
             <posts-by-category
               category="javascript"
@@ -34,17 +45,17 @@
             />
           </v-col>
 
-          <v-col class="col-12">
+          <v-col cols="12">
             <h2 class="font-weight-medium">e-commerce</h2>
             <posts-by-category
               category="ecommerce"
               @onSelectedPost="onSelectedPost"
             />
           </v-col>
-        </v-container>
-      </v-row>
+        </v-row>
+      </v-container>
 
-      <v-container id="socialLinks" class="pt-16 pb-16 justify-center">
+      <v-container fluid id="socialLinks" class="pt-16 pb-16 justify-center">
         <v-row class="text-center">
           <v-col>
             <btn-icon
@@ -112,6 +123,7 @@
         </v-row>
       </v-container>
 
+      <v-container fluid>
       <v-row id="projects">
         <project-tile
           color="deep-purple lighten-1"
@@ -130,6 +142,8 @@
           :comingsoon="true"
           img="ecompurpl_affiliate_store.png"
         />
+      </v-row>
+      </v-container>
       </v-row>
     </v-main>
 
