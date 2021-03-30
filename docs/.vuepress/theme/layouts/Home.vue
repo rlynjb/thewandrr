@@ -57,7 +57,7 @@
 
       <v-container fluid id="socialLinks" class="pt-16 pb-16 justify-center">
         <v-row class="text-center">
-          <v-col>
+          <v-col class="social-thumb">
             <btn-icon
               hrefLink="https://instagram.com/codepurpl"
               target="_blank"
@@ -74,7 +74,7 @@
             <h4 class="mt-4">Where I post my codebits</h4>
           </v-col>
 
-          <v-col>
+          <v-col class="social-thumb">
             <btn-icon
               hrefLink="https://leetcode.com/rlynjb/"
               target="_blank"
@@ -84,7 +84,7 @@
             <h4 class="mt-4">Where I practice coding</h4>
           </v-col>
 
-          <v-col>
+          <v-col class="social-thumb">
             <btn-icon
               hrefLink="https://rlynjb.medium.com/"
               target="_blank"
@@ -94,7 +94,7 @@
             <h4 class="mt-4">Where I elaborate on details</h4>
           </v-col>
 
-          <v-col>
+          <v-col class="social-thumb">
             <btn-icon
               hrefLink="https://github.com/rlynjb"
               target="_blank"
@@ -111,7 +111,7 @@
             <h4 class="mt-4">Where I store my code</h4>
           </v-col>
 
-          <v-col>
+          <v-col class="social-thumb">
             <btn-icon
               hrefLink="https://www.youtube.com/channel/UCHktUhVF2ZR5JkVunt_OLGw"
               target="_blank"
@@ -157,6 +157,8 @@
         <image-carousel
           :imgs="selectedPost.frontmatter.imgs"
           :cover="selectedPost.frontmatter.img"
+          :model="imgIndex"
+          ref="imageCarousel"
         />
       </div>
     </v-dialog>
@@ -186,14 +188,18 @@ export default {
   data() {
     return {
       dialog: false,
+      imgIndex: 0,
       selectedPost: null,
     }
   },
 
   methods: {
     onSelectedPost(val) {
-      this.dialog = val.dialog;
-      this.selectedPost = val.selectedPost;
+      this.dialog = true;
+      this.selectedPost = val;
+      this.$nextTick(() => {
+        this.$refs.imageCarousel.resetCarousel()
+      })
     },
 
     /*
@@ -225,4 +231,7 @@ export default {
 
 .post-thumb
   cursor: pointer;
+
+.social-thumb
+  min-width: 200px;
 </style>

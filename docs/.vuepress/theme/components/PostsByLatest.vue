@@ -2,8 +2,8 @@
   <div>
     <h2 class="font-weight-medium">latest codebits</h2>
 
-    <div class="d-flex">
-      <div class="post-thumb col-3" v-for="(val, ind) in getLatestPost()">
+    <div class="d-flex" style="overflow-y: auto;">
+      <div class="post-thumb-wrapper col-3" v-for="(val, ind) in getLatestPost()">
         <img :src="'/' + val.frontmatter.img"
           @click="openDialogPost(val)"
         />
@@ -75,11 +75,14 @@ export default {
     },
 
     openDialogPost(val) {
-      this.$emit('onSelectedPost', {
-        dialog: true,
-        selectedPost: val
-      })
+      this.$emit('onSelectedPost', val)
     },
   }
 }
 </script>
+
+<style scoped>
+.post-thumb-wrapper {
+  min-width: 200px;
+}
+</style>

@@ -40,7 +40,7 @@
     <image-carousel
       :cover="$page.frontmatter.img"
       :imgs="$page.frontmatter.imgs"
-      :model="model"
+      :model="imgIndex"
     />
   </v-dialog>
 
@@ -65,14 +65,14 @@ export default {
   data() {
     return {
       dialog: false,
-      model: 0,
+      imgIndex: 0,
     }
   },
 
   methods: {
     openDialog(index) {
       this.dialog = true;
-      this.model = index;
+      this.imgIndex = index;
     }
   }
 }

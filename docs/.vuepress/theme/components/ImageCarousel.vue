@@ -3,6 +3,7 @@
   v-model="modelLocal"
   :show-arrows="imgs.length ? true : false"
   :hide-delimiters="imgs.length ? false : true"
+  hide-delimiters
 >
   <v-carousel-item v-if="cover != ''">
     <img :src="'/' + cover" />
@@ -11,7 +12,7 @@
   <v-carousel-item
     v-for="(img, ind) in imgs"
   >
-    <h3>{{ img[Object.keys(img)[0]] }}</h3>
+    <h4>{{ img[Object.keys(img)[0]] }}</h4>
     <img :src="'/' + Object.keys(img)[0]" />
   </v-carousel-item>
 </v-carousel>
@@ -52,11 +53,13 @@ export default {
   watch: {
     model(val) {
       this.modelLocal = JSON.parse(val);
-    }
+    },
   },
 
   methods: {
-    //
+    resetCarousel() {
+      this.modelLocal = 0;
+    }
   },
 }
 </script>

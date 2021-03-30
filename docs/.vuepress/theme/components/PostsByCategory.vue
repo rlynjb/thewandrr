@@ -1,6 +1,6 @@
 <template>
 <div class="d-flex" style="overflow-y: auto;">
-  <div class="col postItem"
+  <div class="col post-thumb-wrapper"
     v-for="val in getPostsByCategory(category)"
   >
     <div class="post-thumb">
@@ -81,17 +81,14 @@ export default {
     },
 
     openDialogPost(val) {
-      this.$emit('onSelectedPost', {
-        dialog: true,
-        selectedPost: val
-      })
+      this.$emit('onSelectedPost', val)
     },
   },
 }
 </script>
 
 <style scoped>
-.postItem {
+.post-thumb-wrapper {
   min-width: 200px;
 }
 </style>
