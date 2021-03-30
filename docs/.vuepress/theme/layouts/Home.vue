@@ -28,6 +28,12 @@
             <v-chip>#CSS</v-chip>
             <v-chip>#HTML5</v-chip>
             <v-chip>#Vue</v-chip>
+            <!--
+            <v-chip>#DataStructure</v-chip>
+            <v-chip>#Algorithms</v-chip>
+            <v-chip>#Ecommerce</v-chip>
+            <v-chip>#Greensock</v-chip>
+            -->
           </v-col>
         </v-row>
       </v-container>
