@@ -8,19 +8,20 @@
         </a>
 
         <h2 class="mt-12">Get Intouch</h2>
-        <div>
+        <div class="mt-6">
           <btn-icon
             hrefLink="https://www.linkedin.com/in/rlynpro/"
             target="_blank"
             iconName="fab fa-linkedin-in"
-            size="24"
+            size="30"
+            class="mr-6"
           />
 
           <btn-icon
             hrefLink="https://docs.google.com/document/d/1VN9dtP5_oyVELBfDxY7qXaFLu4iSs4yOEK8vqjDoFG8/edit?usp=sharing"
             target="_blank"
             iconName="far fa-file"
-            size="24"
+            size="30"
           />
         </div>
       </v-col>
