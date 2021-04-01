@@ -66,3 +66,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.v-breadcrumbs {
+  padding: 0;
+}
+</style>

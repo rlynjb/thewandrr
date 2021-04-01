@@ -13,8 +13,8 @@ imgs:
   - 'so_you_wanna_code/9.png': ''
   - 'so_you_wanna_code/10.png': ''
 ---
-
-this is my post on stuff
 <!--
+this is my post on stuff
+
 ![hello image](./so_you_wanna_code/1.png)
 -->

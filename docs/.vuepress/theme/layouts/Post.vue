@@ -9,25 +9,37 @@
         :disable="[1, 2]"
       />
 
-      <h1>{{ $page.title }}</h1>
+      <h1 class="font-weight-light mt-8"
+        style="line-height: 1.2;">
+        {{ $page.title }}
+      </h1>
       <h5>{{ $page.frontmatter.date ? $page.frontmatter.date : '' }}</h5>
 
-      <div v-if="$page.frontmatter.imgs" class="d-flex row">
-        <div class="col-2 ma-3"
+      <v-row v-if="$page.frontmatter.imgs"
+        class="mt-6">
+        <v-col
+          cols="6"
+          sm="6"
+          md="3"
+          lg="2"
           v-if="$page.frontmatter.img">
           <img :src="'/' + $page.frontmatter.img"
             @click="openDialog(0)"
           />
-        </div>
+        </v-col>
 
-        <div class="col-2 ma-3"
+        <v-col
+          cols="6"
+          sm="6"
+          md="3"
+          lg="2"
           v-for="(val, ind) in $page.frontmatter.imgs">
           <img :src="'/' + Object.keys(val)[0]"
             @click="openDialog(ind)"
           />
           <p>{{ val[Object.keys(val)[0]] }}</p>
-        </div>
-      </div>
+        </v-col>
+      </v-row>
 
       <Content class="mt-10" />
     </v-container>

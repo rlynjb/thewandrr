@@ -9,7 +9,10 @@
         />
 
         <div @click="gotoPost(val)">
-          <h4>{{ val.frontmatter.title }}</h4>
+          <h4 class="font-weight-regular mb-1"
+            style="line-height: 1.3;">
+            {{ val.frontmatter.title }}
+          </h4>
           <h5 class="font-weight-medium grey--text lighten-5">
             {{ formatDate(val.date) }}
           </h5>

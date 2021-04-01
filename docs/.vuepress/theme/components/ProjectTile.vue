@@ -1,6 +1,10 @@
 <template>
 <v-col :class="'pa-16 text-center ' + color">
-  <h3 v-if="comingsoon">Coming Soon</h3>
+  <h3 v-if="comingsoon"
+    class="font-weight-regular font-italic"
+    style="line-height: 1.2;">
+    Coming Soon
+  </h3>
   <img :src="'/' + img" />
 </v-col>
 </template>

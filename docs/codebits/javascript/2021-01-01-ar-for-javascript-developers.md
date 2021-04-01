@@ -13,8 +13,8 @@ imgs:
   - 'ar_for_javascript_developers/9.png': ''
   - 'ar_for_javascript_developers/10.png': ''
 ---
-
-this is my post on stuff
 <!--
+this is my post on stuff
+
 ![hello image](./ar_for_javascript_developers/1.png)
 -->

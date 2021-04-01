@@ -12,5 +12,6 @@ imgs:
   - 'best_practice_for_loops_in_javascript/8.png': ''
   - 'best_practice_for_loops_in_javascript/9.png': ''
 ---
-
+<!--
 this is my post on stuff
+-->
