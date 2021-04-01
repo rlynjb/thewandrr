@@ -35,7 +35,7 @@
           lg="2"
           v-for="(val, ind) in $page.frontmatter.imgs">
           <img :src="'/' + Object.keys(val)[0]"
-            @click="openDialog(ind)"
+            @click="openDialog(ind + 1)"
           />
           <p>{{ val[Object.keys(val)[0]] }}</p>
         </v-col>
