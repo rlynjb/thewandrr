@@ -18,6 +18,7 @@
       <v-row v-if="$page.frontmatter.imgs"
         class="mt-6">
         <v-col
+          class="post-thumb"
           cols="6"
           sm="6"
           md="3"
@@ -29,6 +30,7 @@
         </v-col>
 
         <v-col
+          class="post-thumb"
           cols="6"
           sm="6"
           md="3"
@@ -91,5 +93,7 @@ export default {
 </script>
 
 <style lang="styl">
-
+.post-thumb {
+  cursor: pointer;
+}
 </style>

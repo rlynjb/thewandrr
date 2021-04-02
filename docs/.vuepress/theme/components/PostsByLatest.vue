@@ -87,5 +87,6 @@ export default {
 <style scoped>
 .post-thumb-wrapper {
   min-width: 200px;
+  cursor: pointer;
 }
 </style>
